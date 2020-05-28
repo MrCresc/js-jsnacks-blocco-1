@@ -59,8 +59,34 @@ bottoneJSnack2.addEventListener('click',
   }
 )
 // -----------------------------------------------------------------------------
+// Il software deve chiedere per 5 volte all’utente di inserire un
+// numero. Il programma stampa la somma di tutti i numeri
+// inseriti. Esegui questo programma in due versioni, con il for
+// e con il while.
 
-// JSnack3 WORK IN PROGRESS
+// Variabili
+var bottoneJSnack3 = document.getElementById('bottone3');
+var risultatoJSnack3 = document.getElementById('risultato3');
+var numeroUtenteJSnack3;
+// Aggiungo EventListener al click
+bottoneJSnack3.addEventListener('click',
+  function () {
+    // Aggiungo reset in caso di re-click
+    risultatoJSnack3.innerHTML = ""
+    var sommaJSnack3 = 0
+    // Determino ciclo per chiedere 5 volte un numero
+    for (var i = 0; i < 5; i++) {
+      numeroUtenteJSnack3 = parseInt(prompt("Digita un numero"))
+      // Filtro input utente
+      while (isNaN(numeroUtenteJSnack3)) {
+        numeroUtenteJSnack3 = parseInt(prompt("Valore errato, digita un numero valido"))
+      }
+      sommaJSnack3 += numeroUtenteJSnack3
+    }
+    // Sommo tutti i numeri e scrivo totale nell'HTML
+    risultatoJSnack3.innerHTML = "La somma dei 5 numeri digitati è " + sommaJSnack3;
+  }
+)
 
 // -----------------------------------------------------------------------------
 // In un array sono contenuti i nomi degli invitati alla festa del
@@ -86,9 +112,9 @@ bottoneJSnack4.addEventListener('click',
     }
     // Determino e scrivo l'esito della verifica
     if (okJSnack4) {
-      risultatoJSnack4.innerHTML = "Complimenti puoi partecipare alla festa!";
+      risultatoJSnack4.innerHTML = "Complimenti " + nominativoUtenteJSnack4 + " puoi partecipare alla festa!";
     } else {
-      risultatoJSnack4.innerHTML = "Ci dispiace, non puoi partecipare alla festa!";
+      risultatoJSnack4.innerHTML = "Ci dispiace " + nominativoUtenteJSnack4 + ", non puoi partecipare alla festa!";
     }
   }
 )
@@ -125,6 +151,6 @@ bottoneJSnack5.addEventListener('click',
       totaleJSnack5 += numeroSplitConvJSnack5;
     }
     // Scrivo il risultato nell'HTML
-    risultatoJSnack5.innerHTML ="La somma dei singoli numeri è " + totaleJSnack5;
+    risultatoJSnack5.innerHTML ="La somma dei singoli numeri di " + numeroJSnack5 + " è " + totaleJSnack5;
   }
 )

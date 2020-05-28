@@ -1,0 +1,32 @@
+body {
+  background-color: #000d1a;
+  color: lightgray;
+  text-align: center;
+}
+
+.container {
+  background-color: rgba(255, 0, 0, 0.2);
+  border: 2px solid lightgray;
+  margin: 5px 0;
+}
+
+.jsnack2 {
+  background-color: rgba(0, 255, 255, 0.1);
+}
+
+.jsnack3 {
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+.jsnack4 {
+  background-color: rgba(255, 255, 50, 0.1);
+}
+
+.jsnack5 {
+  background-color: rgba(0, 0, 255, 0.1);
+}
+
+p {
+  font-size: 18px;
+  font-weight: bold;
+}

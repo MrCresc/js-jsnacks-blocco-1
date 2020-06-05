@@ -173,6 +173,9 @@ bottoneJSnack6.addEventListener('click',
     var arrayFinaleJSnack6 = []
     risultatoJSnack6.innerHTML = ""
     var numeroUtenteJSnack6 = parseInt(prompt('Quanti nominativi vuoi generare?'))
+    while (isNaN(numeroUtenteJSnack6)) {
+      numeroUtenteJSnack6 = parseInt(prompt('Attenzione valore immesso errato! Quanti nominativi vuoi generare?'))
+    }
     for (var i = 0; i < numeroUtenteJSnack6; i++) {
       var numeroRandomNomiJSnack6 = randomize(nomiJSnack6)
       var numeroRandomCognomiJSnack6 = randomize(cognomiJSnack6)
@@ -200,6 +203,7 @@ var risultatoJSnack7 = document.getElementById('risultato7')
 // Aggiungo EventListener al click
 bottoneJSnack7.addEventListener('click',
   function () {
+    // Aggiungo reset in caso di re-click
     var inputUtenteJSnack7
     var array1JSnack7 = [1,2,3,4,5]
     var array2JSnack7 = [1,2,3,4,5,6,7,8,9,10]
@@ -207,13 +211,72 @@ bottoneJSnack7.addEventListener('click',
 
     while (array1JSnack7.length < array2JSnack7.length) {
       console.log(array1JSnack7)
-      inputUtenteJSnack7 = prompt('Premi ok per aggiungere un altro elemento nel primo array')
+      inputUtenteJSnack7 = prompt('Premi un tasto per aggiungere un altro elemento nel primo array')
       numeroRandomJSnack7 = Math.floor(Math.random() * 10) + 1;
       array1JSnack7.push(numeroRandomJSnack7)
       alert('Adesso i 2 array contengono [' + array1JSnack7 + '] ' + ' e ' + '[' + array2JSnack7 + ']')
     }
 
     alert('COMPLIMENTI!!! Adesso i 2 array contengono entrambi 10 elementi')
-    risultatoJSnack7.innerHTML = 'Adesso i 2 array contengono entrambi 10 elementi [' + array1JSnack7 + '] ' + ' e ' + '[' + array2JSnack7 + ']'
+    risultatoJSnack7.innerHTML = 'Adesso i 2 array contengono entrambi 10 elementi: [' + array1JSnack7 + '] ' + ' e ' + '[' + array2JSnack7 + ']'
+  }
+)
+
+// -----------------------------------------------------------------------------
+// Fai inserire un numero, che chiameremo N, all’utente.
+// Genera N array, ognuno formato da 10 numeri casuali
+// tra 1 e 100.
+// Ogni volta che ne crei uno, stampalo a schermo.
+var bottoneJSnack8 = document.getElementById('bottone8')
+var risultatoJSnack8 = document.getElementById('risultato8')
+
+// Aggiungo EventListener al click
+bottoneJSnack8.addEventListener('click',
+  function () {
+    // Aggiungo reset in caso di re-click
+    risultatoJSnack8.innerHTML = ''
+    var numeroUtenteJSnack8 = parseInt(prompt('Quanti array vuoi generare?'))
+    while (isNaN(numeroUtenteJSnack8)) {
+      numeroUtenteJSnack8 = parseInt(prompt('Attenzione valore immesso errato! Quanti array vuoi generare?'))
+    }
+    for (var i = 0; i < numeroUtenteJSnack8; i++) {
+      var arrayJSnack8 = creaArray(10,100)
+      risultatoJSnack8.innerHTML += '[' + arrayJSnack8 + '] '
+    }
+  }
+)
+
+function creaArray(quantita, range) {
+  var array = []
+  for (var i = 0; i < quantita; i++) {
+    var numeroRandom = Math.floor(Math.random() * range) + 1;
+    array.push(numeroRandom)
+  }
+  return array;
+}
+
+// -----------------------------------------------------------------------------
+// Crea due tag div con due id diversi: un div avrà il testo
+// colorato di rosso mentre l’altro di verde.
+// Partendo da un array di numeri, stampiamo nell’id rosso i
+// numeri dispari e in verde i numeri pari.
+var bottoneJSnack9 = document.getElementById('bottone9')
+var dispariJSnack9 = document.getElementById('dispari9')
+var pariJSnack9 = document.getElementById('pari9')
+
+// Aggiungo EventListener al click
+bottoneJSnack9.addEventListener('click',
+  function () {
+    // Aggiungo reset in caso di re-click
+    pariJSnack9.innerHTML = ''
+    dispariJSnack9.innerHTML = ''
+    var arrayJSnack9 = creaArray(10,100)
+    for (var i = 0; i < arrayJSnack9.length; i++) {
+      if (arrayJSnack9[i] % 2 === 0) {
+        pariJSnack9.innerHTML += arrayJSnack9[i] + ' '
+      } else {
+        dispariJSnack9.innerHTML += arrayJSnack9[i] + ' '
+      }
+    }
   }
 )

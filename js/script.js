@@ -135,7 +135,7 @@ bottoneJSnack5.addEventListener('click',
     // Aggiungo reset in caso di re-click
     numeroJSnack5 = 0;
     totaleJSnack5 = 0;
-    risultatoJSnack5.innerHTML ="";
+    risultatoJSnack5.innerHTML = "";
     // Filtro input utente
     while ( !( numeroJSnack5>=1000 && numeroJSnack5<=9999 ) ) {
       numeroJSnack5 = prompt("Scrivi un numero di 4 cifre");
@@ -152,5 +152,68 @@ bottoneJSnack5.addEventListener('click',
     }
     // Scrivo il risultato nell'HTML
     risultatoJSnack5.innerHTML ="La somma dei singoli numeri di " + numeroJSnack5 + " è " + totaleJSnack5;
+  }
+)
+
+// -----------------------------------------------------------------------------
+// Generatore di “nomi cognomi” casuali: prendendo una lista
+// di nomi e una lista di cognomi, Gatsby vuole generare una
+// falsa lista di invitati.
+
+// Variabili
+var bottoneJSnack6 = document.getElementById('bottone6')
+var risultatoJSnack6 = document.getElementById('risultato6')
+var nomiJSnack6 = ['Crescenzo','Alessandro','Nikolas','Chiara','Emanuela','Antonella','Fabio','Michele']
+var cognomiJSnack6 = ['De Martino','Scolozzi','Sainato','Passaro','Buonocore','Ruggiero','Riitano','Ferrara']
+
+// Aggiungo EventListener al click
+bottoneJSnack6.addEventListener('click',
+  function () {
+    // Aggiungo reset in caso di re-click
+    var arrayFinaleJSnack6 = []
+    risultatoJSnack6.innerHTML = ""
+    var numeroUtenteJSnack6 = parseInt(prompt('Quanti nominativi vuoi generare?'))
+    for (var i = 0; i < numeroUtenteJSnack6; i++) {
+      var numeroRandomNomiJSnack6 = randomize(nomiJSnack6)
+      var numeroRandomCognomiJSnack6 = randomize(cognomiJSnack6)
+      var nuovoNominativoJSnack6 = ' ' + nomiJSnack6[numeroRandomNomiJSnack6] + ' ' + cognomiJSnack6[numeroRandomCognomiJSnack6]
+      arrayFinaleJSnack6.push(nuovoNominativoJSnack6)
+    }
+    risultatoJSnack6.innerHTML = arrayFinaleJSnack6
+  }
+)
+
+function randomize(arg1) {
+  numeroRandom = Math.floor(Math.random() * arg1.length);
+  return numeroRandom;
+}
+
+// -----------------------------------------------------------------------------
+// Crea due array che hanno un numero di elementi diversi.
+// Aggiungi elementi casuali all’array che ha meno elementi,
+// fino a quando ne avrà tanti quanti l’altro.
+
+// Variabili
+var bottoneJSnack7 = document.getElementById('bottone7')
+var risultatoJSnack7 = document.getElementById('risultato7')
+
+// Aggiungo EventListener al click
+bottoneJSnack7.addEventListener('click',
+  function () {
+    var inputUtenteJSnack7
+    var array1JSnack7 = [1,2,3,4,5]
+    var array2JSnack7 = [1,2,3,4,5,6,7,8,9,10]
+    risultatoJSnack7.innerHTML = ''
+
+    while (array1JSnack7.length < array2JSnack7.length) {
+      console.log(array1JSnack7)
+      inputUtenteJSnack7 = prompt('Premi ok per aggiungere un altro elemento nel primo array')
+      numeroRandomJSnack7 = Math.floor(Math.random() * 10) + 1;
+      array1JSnack7.push(numeroRandomJSnack7)
+      alert('Adesso i 2 array contengono [' + array1JSnack7 + '] ' + ' e ' + '[' + array2JSnack7 + ']')
+    }
+
+    alert('COMPLIMENTI!!! Adesso i 2 array contengono entrambi 10 elementi')
+    risultatoJSnack7.innerHTML = 'Adesso i 2 array contengono entrambi 10 elementi [' + array1JSnack7 + '] ' + ' e ' + '[' + array2JSnack7 + ']'
   }
 )
